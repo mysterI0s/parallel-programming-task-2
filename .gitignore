@@ -1,0 +1,13 @@
+# Compiled Java
+*.class
+out/
+build/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Local run artifacts
+*.pid
