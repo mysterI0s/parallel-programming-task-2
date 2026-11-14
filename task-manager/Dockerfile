@@ -1,9 +1,14 @@
-FROM openjdk:8-jdk-alpine
+# The original base image (openjdk:8-jdk-alpine) was removed from Docker Hub.
+# eclipse-temurin is its recommended replacement; 21-jdk-alpine keeps Alpine
+# (so the apk line below still works) and runs on both amd64 and arm64.
+FROM eclipse-temurin:21-jdk-alpine
 
 LABEL maintainer="Wagner Franchin"
 
 ENV WEBPATH=/webserver/
 ENV WEBSERVER="WebServerSocket"
+# 0 keeps the original cached thread pool; N > 0 uses a fixed pool of N threads.
+ENV POOL_SIZE=0
 
 RUN apk update && apk add ca-certificates wget && update-ca-certificates
 
