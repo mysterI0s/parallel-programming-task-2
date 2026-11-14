@@ -1,5 +1,5 @@
 # The original base image (openjdk:8-jdk-alpine) was removed from Docker Hub.
-# eclipse-temurin is its recommended replacement; 21-jdk-alpine keeps Alpine
+# eclipse-temurin is a recommended replacement; 21-jdk-alpine keeps Alpine
 # (so the apk line below still works) and runs on both amd64 and arm64.
 FROM eclipse-temurin:21-jdk-alpine
 

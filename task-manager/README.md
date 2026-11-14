@@ -16,3 +16,13 @@ _Different Type of Web Serves Using HttpServer and ServerSocket_
 * **WebServerSocket** is developed using *ServerSocket* [[javadoc](https://docs.oracle.com/javase/8/docs/api/java/net/ServerSocket.html)].
 
 Both web servers use *ExecutorService* [[javadoc](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html)] that executes each submitted task in the pooled thread, more specifically, `Executors.newCachedThreadPool()` which is an unbounded thread pool with automatic thread reclamation [[javadoc](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html#newCachedThreadPool--)].
+
+
+## Changes in this copy
+
+This copy adds a new task, `TaskPrimeCount`, thread-named logging and a configurable thread pool, and it fixes the
+socket server's HTTP response and the Docker base image. See the [README at the repository root](../README.md).
+
+```
+curl -d TaskPrimeCount -d 1-10000000 http://localhost:8000/
+```
