@@ -1,0 +1,27 @@
+$ java -cp out WebServerSocket
+WebServerSocket is listening on port 8000
+09:42:02.990 [main] Thread pool: CACHED, creates a new thread whenever all existing ones are busy
+09:42:03.404 [main] Accepted connection from /[0:0:0:0:0:0:0:1]:52462, handing it to the pool
+09:42:03.405 [main] Accepted connection from /[0:0:0:0:0:0:0:1]:52463, handing it to the pool
+09:42:03.405 [main] Accepted connection from /[0:0:0:0:0:0:0:1]:52464, handing it to the pool
+09:42:03.405 [main] Accepted connection from /[0:0:0:0:0:0:0:1]:52465, handing it to the pool
+09:42:03.406 [main] Accepted connection from /[0:0:0:0:0:0:0:1]:52466, handing it to the pool
+09:42:03.406 [main] Accepted connection from /[0:0:0:0:0:0:0:1]:52467, handing it to the pool
+09:42:03.406 [main] Accepted connection from /[0:0:0:0:0:0:0:1]:52468, handing it to the pool
+09:42:03.406 [main] Accepted connection from /[0:0:0:0:0:0:0:1]:52469, handing it to the pool
+09:42:03.408 [pool-1-thread-4] New task requested -> TaskPrimeCount&65000001-85000000
+09:42:03.408 [pool-1-thread-7] New task requested -> TaskPrimeCount&40000001-65000000
+09:42:03.408 [pool-1-thread-3] New task requested -> TaskBubbleSort&9,4,7,1,8,2,6,3,5
+09:42:03.408 [pool-1-thread-6] New task requested -> TaskPrimeCount&1-30000000
+09:42:03.408 [pool-1-thread-5] New task requested -> TaskPrimeCount&1-40000000
+09:42:03.408 [pool-1-thread-2] New task requested -> TaskFiboRecursive&44
+09:42:03.408 [pool-1-thread-1] New task requested -> TaskFiboRecursive&43
+09:42:03.408 [pool-1-thread-8] New task requested -> TaskFiboRecursive&42
+09:42:03.419 [pool-1-thread-3] Task finished      -> TaskBubbleSort&9,4,7,1,8,2,6,3,5 in 0.00s
+09:42:04.024 [pool-1-thread-8] Task finished      -> TaskFiboRecursive&42 in 0.61s
+09:42:04.389 [pool-1-thread-1] Task finished      -> TaskFiboRecursive&43 in 0.98s
+09:42:04.964 [pool-1-thread-2] Task finished      -> TaskFiboRecursive&44 in 1.55s
+09:42:05.341 [pool-1-thread-6] Task finished      -> TaskPrimeCount&1-30000000 in 1.93s
+09:42:05.946 [pool-1-thread-4] Task finished      -> TaskPrimeCount&65000001-85000000 in 2.54s
+09:42:06.081 [pool-1-thread-7] Task finished      -> TaskPrimeCount&40000001-65000000 in 2.67s
+09:42:06.116 [pool-1-thread-5] Task finished      -> TaskPrimeCount&1-40000000 in 2.71s

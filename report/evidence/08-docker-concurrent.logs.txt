@@ -1,0 +1,34 @@
+$ docker logs task-manager
+WebServerSocket is listening on port 8000
+07:42:27.584 [main] Thread pool: CACHED, creates a new thread whenever all existing ones are busy
+07:42:30.136 [main] Accepted connection from /192.168.65.1:62669, handing it to the pool
+07:42:30.140 [pool-1-thread-1] New task requested -> TaskPrimeCount&1-10000000
+07:42:30.480 [pool-1-thread-1] Task finished      -> TaskPrimeCount&1-10000000 in 0.33s
+07:42:30.493 [main] Accepted connection from /192.168.65.1:26326, handing it to the pool
+07:42:30.494 [pool-1-thread-1] New task requested -> TaskFiboRecursive&40
+07:42:30.656 [pool-1-thread-1] Task finished      -> TaskFiboRecursive&40 in 0.16s
+07:42:30.669 [main] Accepted connection from /192.168.65.1:16275, handing it to the pool
+07:42:30.695 [main] Accepted connection from /192.168.65.1:18423, handing it to the pool
+07:42:30.695 [main] Accepted connection from /192.168.65.1:38347, handing it to the pool
+07:42:30.695 [pool-1-thread-1] New task requested -> TaskFiboRecursive&44
+07:42:30.695 [main] Accepted connection from /192.168.65.1:26247, handing it to the pool
+07:42:30.695 [pool-1-thread-2] New task requested -> TaskPrimeCount&40000001-65000000
+07:42:30.695 [main] Accepted connection from /192.168.65.1:52053, handing it to the pool
+07:42:30.696 [main] Accepted connection from /192.168.65.1:63205, handing it to the pool
+07:42:30.696 [pool-1-thread-3] New task requested -> TaskPrimeCount&1-40000000
+07:42:30.696 [pool-1-thread-4] New task requested -> TaskPrimeCount&1-30000000
+07:42:30.696 [main] Accepted connection from /192.168.65.1:52260, handing it to the pool
+07:42:30.696 [pool-1-thread-5] New task requested -> TaskPrimeCount&65000001-85000000
+07:42:30.696 [main] Accepted connection from /192.168.65.1:34458, handing it to the pool
+07:42:30.696 [pool-1-thread-6] New task requested -> TaskFiboRecursive&43
+07:42:30.698 [main] Accepted connection from /192.168.65.1:49863, handing it to the pool
+07:42:30.698 [pool-1-thread-7] New task requested -> TaskFiboRecursive&42
+07:42:30.698 [pool-1-thread-8] New task requested -> TaskBubbleSort&9,4,7,1,8,2,6,3,5
+07:42:30.703 [pool-1-thread-8] Task finished      -> TaskBubbleSort&9,4,7,1,8,2,6,3,5 in 0.00s
+07:42:31.260 [pool-1-thread-7] Task finished      -> TaskFiboRecursive&42 in 0.56s
+07:42:31.594 [pool-1-thread-6] Task finished      -> TaskFiboRecursive&43 in 0.90s
+07:42:32.099 [pool-1-thread-1] Task finished      -> TaskFiboRecursive&44 in 1.40s
+07:42:32.600 [pool-1-thread-4] Task finished      -> TaskPrimeCount&1-30000000 in 1.90s
+07:42:33.161 [pool-1-thread-5] Task finished      -> TaskPrimeCount&65000001-85000000 in 2.46s
+07:42:33.321 [pool-1-thread-2] Task finished      -> TaskPrimeCount&40000001-65000000 in 2.63s
+07:42:33.353 [pool-1-thread-3] Task finished      -> TaskPrimeCount&1-40000000 in 2.66s

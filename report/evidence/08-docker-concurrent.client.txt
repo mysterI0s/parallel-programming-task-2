@@ -1,0 +1,22 @@
+$ ./scripts/load-test.sh
+Sending 8 requests to http://localhost:8000/ at the same time...
+
+#4 TaskBubbleSort 9,4,7,1,8,2,6,3,5   (client waited 0.01s)
+   Result: [1,2,3,4,5,6,7,8,9]; Executed in: 0.00s
+#8 TaskFiboRecursive 42   (client waited 0.57s)
+   Result: 267914296; Executed in: 0.56s
+#6 TaskFiboRecursive 43   (client waited 0.90s)
+   Result: 433494437; Executed in: 0.90s
+#2 TaskFiboRecursive 44   (client waited 1.41s)
+   Result: 701408733; Executed in: 1.40s
+#5 TaskPrimeCount 1-30000000   (client waited 1.91s)
+   Result: 1857859 primes in [1, 30000000]; Executed in: 1.90s
+#7 TaskPrimeCount 65000001-85000000   (client waited 2.47s)
+   Result: 1103177 primes in [65000001, 85000000]; Executed in: 2.46s
+#3 TaskPrimeCount 40000001-65000000   (client waited 2.63s)
+   Result: 1406900 primes in [40000001, 65000000]; Executed in: 2.63s
+#1 TaskPrimeCount 1-40000000   (client waited 2.66s)
+   Result: 2433654 primes in [1, 40000000]; Executed in: 2.66s
+
+Whole batch, sent together     : 2.67s
+Task execution times, added up : 12.51s

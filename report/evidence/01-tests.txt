@@ -1,0 +1,49 @@
+$ ./scripts/run-tests.sh
+Note: src/singleton/TaskExecutor.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+== ServerTest
+09:42:00.134 [Thread-0] New task requested -> TaskPrimeCount&100
+09:42:00.143 [Thread-0] Task finished      -> TaskPrimeCount&100 in 0.00s
+PASS  socket response starts with an HTTP status line
+PASS  socket response body carries the task result
+PASS  socket response declares the exact body length
+PASS  log line is 'HH:mm:ss.SSS [thread-name] message'
+09:42:00.145 [main] Thread pool: FIXED with 4 thread(s), extra requests wait in its queue
+PASS  POOL_SIZE=4 gives a pool fixed at 4 threads
+09:42:00.146 [main] Thread pool: CACHED, creates a new thread whenever all existing ones are busy
+PASS  POOL_SIZE=null keeps the original cached pool
+09:42:00.146 [main] Thread pool: CACHED, creates a new thread whenever all existing ones are busy
+PASS  POOL_SIZE= keeps the original cached pool
+09:42:00.146 [main] Thread pool: CACHED, creates a new thread whenever all existing ones are busy
+PASS  POOL_SIZE=0 keeps the original cached pool
+09:42:00.146 [main] Thread pool: CACHED, creates a new thread whenever all existing ones are busy
+PASS  POOL_SIZE=-2 keeps the original cached pool
+09:42:00.147 [main] Thread pool: CACHED, creates a new thread whenever all existing ones are busy
+PASS  POOL_SIZE=abc keeps the original cached pool
+PASS  task history keeps all 40000 tasks added by 8 threads
+
+All tests passed
+
+== TaskPrimeCountTest
+PASS  single number counts primes up to N
+PASS  range FROM-TO is inclusive on both ends
+PASS  range holding exactly one prime
+PASS  range holding no primes
+PASS  0 and 1 are not prime
+PASS  2 is the smallest prime
+PASS  squares of primes are not prime
+PASS  known value: pi(1,000,000) = 78498
+PASS  spaces around the numbers are ignored
+PASS  rejects text instead of a number
+PASS  rejects empty input
+PASS  rejects missing input
+PASS  rejects range start after range end
+PASS  rejects single number below 1 (the range [1, 0] is empty)
+PASS  rejects negative number
+PASS  rejects too many parts
+PASS  rejects upper bound above the allowed maximum
+09:42:00.227 [main] Task finished      -> TaskPrimeCount&100 in 0.00s
+PASS  server dispatcher finds and runs the task by name
+
+All tests passed
+

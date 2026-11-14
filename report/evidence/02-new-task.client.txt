@@ -1,0 +1,19 @@
+$ curl -s -d TaskPrimeCount -d 100 http://localhost:8000/
+Result: 25 primes in [1, 100]; Executed in: 0.00s
+$ curl -s -d TaskPrimeCount -d 1-10000000 http://localhost:8000/
+Result: 664579 primes in [1, 10000000]; Executed in: 0.31s
+$ curl -s -d TaskPrimeCount -d 20000000-30000000 http://localhost:8000/
+Result: 587252 primes in [20000000, 30000000]; Executed in: 0.62s
+$ curl -s -d TaskPrimeCount -d 5000-4000 http://localhost:8000/
+Result: Exception: range start 5000 is after range end 4000; Executed in: 0.00s
+$ curl -s -d TaskFiboRecursive -d 40 http://localhost:8000/
+Result: 102334155; Executed in: 0.18s
+$ curl -s -d TaskBubbleSort -d 10,9,8,7,6,5,4,3,2,1 http://localhost:8000/
+Result: [1,2,3,4,5,6,7,8,9,10]; Executed in: 0.00s
+$ curl -s http://localhost:8000/
+task.TaskPrimeCount-> Params: 100; Result: 25 primes in [1, 100]; Executed in: 0.00s
+task.TaskPrimeCount-> Params: 1-10000000; Result: 664579 primes in [1, 10000000]; Executed in: 0.31s
+task.TaskPrimeCount-> Params: 20000000-30000000; Result: 587252 primes in [20000000, 30000000]; Executed in: 0.62s
+task.TaskPrimeCount-> Params: 5000-4000; Result: Exception: range start 5000 is after range end 4000; Executed in: 0.00s
+task.TaskFiboRecursive-> Params: 40; Result: 102334155; Executed in: 0.18s
+task.TaskBubbleSort-> Params: 10,9,8,7,6,5,4,3,2,1; Result: [1,2,3,4,5,6,7,8,9,10]; Executed in: 0.00s
