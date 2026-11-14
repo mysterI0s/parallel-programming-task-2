@@ -1,9 +1,10 @@
 import handler.RequestsHandlerSocket;
+import util.Log;
+import util.PoolFactory;
 
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * This program demonstrates a simple TCP/IP socket server.
@@ -21,11 +22,14 @@ public class WebServerSocket {
 
             System.out.println("WebServerSocket is listening on port " + PORT);
 
-            //executorService = Executors.newFixedThreadPool(1);
-            executorService = Executors.newCachedThreadPool();
+            executorService = PoolFactory.fromEnvironment();
 
             while (running) {
-                RequestsHandlerSocket handler = new RequestsHandlerSocket(serverSocket.accept());
+                // The main thread only accepts connections; the work itself is
+                // wrapped in a Runnable and handed to a pool thread.
+                Socket socket = serverSocket.accept();
+                Log.info("Accepted connection from " + socket.getRemoteSocketAddress() + ", handing it to the pool");
+                RequestsHandlerSocket handler = new RequestsHandlerSocket(socket);
                 executorService.submit(handler);
             }
 

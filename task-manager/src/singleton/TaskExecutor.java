@@ -1,6 +1,7 @@
 package singleton;
 
 import task.*;
+import util.Log;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -34,6 +35,7 @@ public enum TaskExecutor {
         long end = System.currentTimeMillis();
         String executedTime = new DecimalFormat("#0.00").format((end - start) / 1000d) + "s";
         task.setExecutedTime(executedTime);
+        Log.info("Task finished      -> " + parameters + " in " + executedTime);
 
         return task.getResult();
     }

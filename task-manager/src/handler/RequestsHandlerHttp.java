@@ -5,6 +5,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import singleton.TaskExecutor;
 import singleton.TasksList;
+import util.Log;
 
 import java.io.*;
 
@@ -27,7 +28,7 @@ public class RequestsHandlerHttp implements HttpHandler {
                     .lines()
                     .forEach(s -> params.append(s));
 
-                System.out.println("New request from " + requestHeaders.get("User-agent") + " -> " + params);
+                Log.info("New request from " + requestHeaders.get("User-agent") + " -> " + params);
                 response = TaskExecutor.INSTANCE.run(params.toString());
                 break;
         }

@@ -1,9 +1,9 @@
 import com.sun.net.httpserver.HttpServer;
 import handler.RequestsHandlerHttp;
+import util.PoolFactory;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.util.concurrent.Executors;
 
 public class WebServerHttp {
 
@@ -13,8 +13,7 @@ public class WebServerHttp {
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
         server.createContext("/", new RequestsHandlerHttp());
 
-        //server.setExecutor(Executors.newFixedThreadPool(1));
-        server.setExecutor(Executors.newCachedThreadPool());
+        server.setExecutor(PoolFactory.fromEnvironment());
 
         server.start();
         System.out.println("WebServerHttp is listening on port " + PORT);
