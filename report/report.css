@@ -1,0 +1,161 @@
+/* Shared print stylesheet for report-ar.html (RTL) and report-en.html (LTR). */
+
+@page {
+  size: A4;
+  margin: 17mm 17mm 19mm;
+  @bottom-center {
+    content: counter(page);
+    font: 9pt "Helvetica Neue", Arial, sans-serif;
+    color: #5f6b7a;
+  }
+}
+
+:root {
+  --primary: #1f4e79;
+  --accent: #2e75b6;
+  --text: #1c2430;
+  --muted: #5f6b7a;
+  --line: #d5dbe3;
+  --code-bg: #f5f7fa;
+  --note-bg: #eef4fb;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 10.4pt; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+html[dir="rtl"] body {
+  font-family: "Geeza Pro", "Arial", sans-serif;
+  line-height: 1.8;
+}
+
+/* ---- title block ---------------------------------------------------- */
+
+.title {
+  background: var(--primary);
+  color: #fff;
+  padding: 16pt 18pt 14pt;
+  border-radius: 3pt;
+}
+.title .course { font-size: 10pt; opacity: 0.85; margin: 0 0 3pt; }
+.title h1 { font-size: 19pt; line-height: 1.3; margin: 0; border: 0; padding: 0; color: #fff; }
+.title .subtitle { font-size: 11pt; margin: 4pt 0 0; opacity: 0.92; }
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3pt 22pt;
+  margin: 9pt 0 14pt;
+  padding-bottom: 8pt;
+  border-bottom: 0.75pt solid var(--line);
+  font-size: 9.4pt;
+  color: var(--muted);
+}
+.meta b { color: var(--text); font-weight: 600; }
+
+/* ---- headings ------------------------------------------------------- */
+
+h1, h2, h3, h4 { break-after: avoid; line-height: 1.35; }
+
+h1 {
+  font-size: 15.5pt;
+  color: var(--primary);
+  margin: 20pt 0 8pt;
+  padding-bottom: 4pt;
+  border-bottom: 1.5pt solid var(--primary);
+}
+h2 { font-size: 12.6pt; color: var(--primary); margin: 16pt 0 5pt; }
+h3 { font-size: 10.6pt; color: var(--accent); margin: 11pt 0 2pt; }
+
+p { margin: 4pt 0 6pt; }
+ul, ol { margin: 4pt 0 7pt; padding-inline-start: 17pt; }
+li { margin: 2pt 0; }
+
+/* ---- code ----------------------------------------------------------- */
+
+code, pre {
+  font-family: Menlo, "DejaVu Sans Mono", Consolas, monospace;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+code {
+  font-size: 0.86em;
+  background: #edf0f4;
+  padding: 0.5pt 2.5pt;
+  border-radius: 2pt;
+  white-space: nowrap;
+}
+
+pre {
+  margin: 6pt 0 9pt;
+  padding: 7pt 9pt;
+  background: var(--code-bg);
+  border: 0.6pt solid var(--line);
+  border-radius: 3pt;
+  font-size: 7.9pt;
+  line-height: 1.5;
+  text-align: left;
+  white-space: pre;
+  overflow: hidden;
+  break-inside: avoid;
+}
+pre .c { color: #6a7686; }                     /* comments */
+
+/* ---- tables --------------------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 7pt 0 10pt;
+  font-size: 9.2pt;
+}
+tr { break-inside: avoid; }
+table.keep { break-inside: avoid; }          /* short tables stay on one page */
+th, td {
+  border: 0.6pt solid var(--line);
+  padding: 4pt 6pt;
+  text-align: start;
+  vertical-align: top;
+}
+th { background: #e9f0f8; color: var(--primary); font-weight: 600; }
+td.num, th.num { text-align: center; white-space: nowrap; }
+html[dir="rtl"] table { line-height: 1.65; }
+
+/* ---- callouts and figures ------------------------------------------ */
+
+.note {
+  margin: 8pt 0 10pt;
+  padding: 6pt 10pt;
+  background: var(--note-bg);
+  border-inline-start: 3pt solid var(--accent);
+  border-radius: 2pt;
+  break-inside: avoid;
+}
+.note p { margin: 2pt 0; }
+
+figure {
+  margin: 10pt 0 12pt;
+  text-align: center;
+  break-inside: avoid;
+}
+figure img {
+  max-width: 76%;
+  max-height: 205mm;
+  border-radius: 4pt;
+}
+figure svg { max-width: 100%; height: auto; direction: ltr; }
+figcaption { margin-top: 4pt; font-size: 9pt; color: var(--muted); }
+figcaption b { color: var(--text); }
+
+.small { font-size: 9pt; color: var(--muted); }
+.ltr { direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
