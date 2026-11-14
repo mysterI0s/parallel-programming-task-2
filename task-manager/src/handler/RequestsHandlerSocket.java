@@ -2,9 +2,11 @@ package handler;
 
 import singleton.TaskExecutor;
 import singleton.TasksList;
+import util.Log;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class RequestsHandlerSocket implements Runnable {
@@ -38,15 +40,23 @@ public class RequestsHandlerSocket implements Runnable {
                 break;
             case "POST":
                 String params = getParameters(br);
-                System.out.println("New task requested -> " + params);
+                Log.info("New task requested -> " + params);
                 response = TaskExecutor.INSTANCE.run(params);
                 break;
         }
 
-        PrintWriter writer = new PrintWriter(out, true);
-        writer.print(response);
+        // A status line and headers make this a real HTTP response; without them
+        // current HTTP clients (curl, browsers) reject the reply as HTTP/0.9.
+        byte[] body = response.getBytes(StandardCharsets.UTF_8);
+        String headers = "HTTP/1.1 200 OK\r\n"
+                + "Content-Type: text/plain; charset=utf-8\r\n"
+                + "Content-Length: " + body.length + "\r\n"
+                + "Connection: close\r\n"
+                + "\r\n";
+        out.write(headers.getBytes(StandardCharsets.US_ASCII));
+        out.write(body);
+        out.flush();
 
-        writer.close();
         out.close();
         br.close();
         socket.close();
