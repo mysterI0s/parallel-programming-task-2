@@ -1,11 +1,10 @@
 # Parallel Programming — Assignment 2: Thread Pools
 
 Coursework for the Parallel Programming course (HIAST).
-The assignment brief is in [`02 - Thread Pool Assignment.pdf`](02%20-%20Thread%20Pool%20Assignment.pdf).
 
 | Part | What it asks for | Where it is |
 |------|------------------|-------------|
-| Question 1 | An architecture report on three thread-pool based systems | [`report/report-ar.pdf`](report/report-ar.pdf) (Arabic), [`report/report-en.pdf`](report/report-en.pdf) (English) |
+| Question 1 | An architecture report on three thread-pool based systems | [`report/report-ar.pdf`](report/report-ar.pdf) (in Arabic) |
 | Question 2 | Extending, load-testing and dockerizing a multi-threaded task server | [`task-manager/`](task-manager), documented in the same report |
 
 ## Repository layout
@@ -17,11 +16,9 @@ task-manager/     the reference project with my changes (see below)
   scripts/        run-tests.sh, load-test.sh
   Dockerfile
 report/
-  report-ar.html, report-en.html   report sources (shared stylesheet: report.css)
-  report-ar.pdf,  report-en.pdf    built reports
+  report-ar.pdf   the report
   evidence/       transcripts of every run: the command, then its unedited output
   screenshots/    the same transcripts rendered as terminal images
-  build.py        renders the screenshots and builds the PDFs
 ```
 
 `task-manager/` was imported from
@@ -86,12 +83,3 @@ machine:
 ![Server log with a fixed pool of four threads](report/screenshots/04-concurrent-fixed4.server.png)
 
 The full analysis is in the report.
-
-## Rebuilding the report
-
-```bash
-python3 report/build.py              # screenshots from evidence/, then both PDFs
-python3 report/build.py pdf          # only the PDFs, after editing report-*.html
-```
-
-It needs Python 3 and Chrome or Chromium (set `CHROME` to the binary if it is not found automatically).
